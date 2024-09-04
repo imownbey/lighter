@@ -2,12 +2,12 @@ import { expect, test } from "vitest";
 import { getThemeColors } from "..";
 
 test("get theme colors from theme name", async () => {
-  const result = await getThemeColors("github-dark");
+  const result = await getThemeColors("base16");
   expect(result).toMatchSnapshot();
 });
 
 test("get theme colors from theme name from-css", async () => {
-  const result = await getThemeColors("github-from-css");
+  const result = await getThemeColors("base16");
   expect(result).toMatchSnapshot();
 });
 

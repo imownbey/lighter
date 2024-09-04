@@ -5,6 +5,6 @@ test("remove empty space tokens", async () => {
   const code = `export default   function Gallery() {
 
   }`;
-  const result = await highlight(code, "js", "github-dark");
+  const result = await highlight(code, "js", "base16");
   expect(result.lines).toMatchSnapshot();
 });

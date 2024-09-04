@@ -7,15 +7,12 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "worker": "./dist/worker.esm.mjs",
-      "browser": "./dist/browser.esm.mjs",
       "default": "./dist/index.esm.mjs"
     },
     "./dist/*": "./dist/*",
     "./package.json": "./package.json",
     "./*": "./dist/*"
   },
-  "main": "./dist/index.esm.js",
   "module": "./dist/index.esm.mjs",
   "types": "./dist/index.d.ts",
   "files": [

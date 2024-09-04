@@ -5,6 +5,6 @@ test("highlight with scopes", async () => {
   const code = `export default   function Gallery() {
 
   }`;
-  const result = await highlight(code, "js", "github-dark", { scopes: true });
+  const result = await highlight(code, "js", "base16", { scopes: true });
   expect(result.lines).toMatchSnapshot();
 });
