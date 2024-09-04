@@ -11,38 +11,6 @@ type InlineRange = {
 };
 type CodeRange = MultiLineRange | InlineRange;
 
-type RawTheme = {
-    name?: string;
-    type?: string;
-    tokenColors?: ThemeSetting[];
-    colors?: {
-        [key: string]: string;
-    };
-    [key: string]: any;
-};
-type ThemeSetting = {
-    name?: string;
-    scope?: string | string[];
-    settings: {
-        fontStyle?: string;
-        foreground?: string;
-        background?: string;
-    };
-};
-declare const THEME_NAMES: readonly ["dark-plus", "dracula-soft", "dracula", "github-dark", "github-dark-dimmed", "github-from-css", "github-light", "light-plus", "material-darker", "material-default", "material-from-css", "material-lighter", "material-ocean", "material-palenight", "min-dark", "min-light", "monokai", "nord", "one-dark-pro", "poimandres", "slack-dark", "slack-ochin", "solarized-dark", "solarized-light"];
-type NamesTuple$1 = typeof THEME_NAMES;
-type StringTheme = NamesTuple$1[number];
-type Theme = StringTheme | RawTheme;
-declare class UnknownThemeError extends Error {
-    theme: string;
-    constructor(theme: string);
-}
-
-declare const LANG_NAMES: string[];
-type NamesTuple = typeof LANG_NAMES;
-type LanguageAlias = NamesTuple[number];
-type LanguageName = "angular-html" | "angular-ts" | "apache" | "applescript" | "asm" | "astro" | "awk" | "bat" | "c" | "clarity" | "clojure" | "cmake" | "codeowners" | "coffee" | "common-lisp" | "cpp" | "csharp" | "css" | "csv" | "diff" | "docker" | "dotenv" | "elixir" | "elm" | "emacs-lisp" | "erb" | "erlang" | "fish" | "fsharp" | "git-commit" | "git-rebase" | "gleam" | "glimmer-js" | "glimmer-ts" | "gnuplot" | "go" | "graphql" | "groovy" | "hack" | "haml" | "handlebars" | "haskell" | "html" | "html-derivative" | "http" | "ini" | "java" | "javascript" | "jinja" | "jison" | "json" | "json5" | "jsonc" | "jsonl" | "jsx" | "julia" | "kotlin" | "latex" | "less" | "liquid" | "log" | "logo" | "lua" | "luau" | "make" | "markdown" | "mdx" | "nginx" | "objective-c" | "objective-cpp" | "ocaml" | "perl" | "php" | "postcss" | "prisma" | "prolog" | "proto" | "puppet" | "python" | "r" | "racket" | "regexp" | "ruby" | "rust" | "sass" | "scala" | "scheme" | "scss" | "shellscript" | "smalltalk" | "solidity" | "sparql" | "splunk" | "sql" | "stylus" | "svelte" | "swift" | "systemd" | "tcl" | "toml" | "tsx" | "txt" | "typescript" | "typespec" | "vue" | "vue-html" | "wasm" | "xml" | "yaml" | "zig";
-
 type Annotation = {
     name: string;
     query?: string;
@@ -85,6 +53,38 @@ type LineGroup = {
     lines: Lines;
 };
 type Lines = (Line | LineGroup)[];
+
+declare const LANG_NAMES: string[];
+type NamesTuple$1 = typeof LANG_NAMES;
+type LanguageAlias = NamesTuple$1[number];
+type LanguageName = "angular-html" | "angular-ts" | "apache" | "applescript" | "asm" | "astro" | "awk" | "bat" | "c" | "clarity" | "clojure" | "cmake" | "codeowners" | "coffee" | "common-lisp" | "cpp" | "csharp" | "css" | "csv" | "diff" | "docker" | "dotenv" | "elixir" | "elm" | "emacs-lisp" | "erb" | "erlang" | "fish" | "fsharp" | "git-commit" | "git-rebase" | "gleam" | "glimmer-js" | "glimmer-ts" | "gnuplot" | "go" | "graphql" | "groovy" | "hack" | "haml" | "handlebars" | "haskell" | "html" | "html-derivative" | "http" | "ini" | "java" | "javascript" | "jinja" | "jison" | "json" | "json5" | "jsonc" | "jsonl" | "jsx" | "julia" | "kotlin" | "latex" | "less" | "liquid" | "log" | "logo" | "lua" | "luau" | "make" | "markdown" | "mdx" | "nginx" | "objective-c" | "objective-cpp" | "ocaml" | "perl" | "php" | "postcss" | "prisma" | "prolog" | "proto" | "puppet" | "python" | "r" | "racket" | "regexp" | "ruby" | "rust" | "sass" | "scala" | "scheme" | "scss" | "shellscript" | "smalltalk" | "solidity" | "sparql" | "splunk" | "sql" | "stylus" | "svelte" | "swift" | "systemd" | "tcl" | "toml" | "tsx" | "txt" | "typescript" | "typespec" | "vue" | "vue-html" | "wasm" | "xml" | "yaml" | "zig";
+
+type RawTheme = {
+    name?: string;
+    type?: string;
+    tokenColors?: ThemeSetting[];
+    colors?: {
+        [key: string]: string;
+    };
+    [key: string]: any;
+};
+type ThemeSetting = {
+    name?: string;
+    scope?: string | string[];
+    settings: {
+        fontStyle?: string;
+        foreground?: string;
+        background?: string;
+    };
+};
+declare const THEME_NAMES: readonly ["base16"];
+type NamesTuple = typeof THEME_NAMES;
+type StringTheme = NamesTuple[number];
+type Theme = StringTheme | RawTheme;
+declare class UnknownThemeError extends Error {
+    theme: string;
+    constructor(theme: string);
+}
 
 declare class UnknownLanguageError extends Error {
     alias: string;
