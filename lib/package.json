@@ -1,7 +1,7 @@
 {
   "name": "@imownbey/lighter",
   "type": "module",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Code Hike's syntax highlighter - modified",
   "license": "MIT",
   "exports": {

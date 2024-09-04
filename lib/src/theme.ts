@@ -1,5 +1,4 @@
-import { readTheme } from "./file-system";
-import { fetchJSON } from "./network";
+import { importTheme } from "./dynamic-imports";
 import { getColor, getColorScheme } from "./theme-colors";
 
 const promiseCache = new Map<StringTheme, Promise<RawTheme>>();
@@ -39,9 +38,9 @@ export function getTheme(theme: Theme): FinalTheme {
 
 async function reallyLoadThemeByName(name: StringTheme): Promise<RawTheme> {
   try {
-    return await readTheme(name);
+    return await importTheme(name);
   } catch (e) {
-    return await fetchJSON(`themes/${name}`);
+    throw new Error(e);
   }
 }
 

@@ -1,7 +1,6 @@
 import type { IRawGrammar } from "vscode-textmate";
-import { readGrammar } from "./file-system";
+import { importGrammar } from "./dynamic-imports";
 import { scopeToLangData } from "./language";
-import { fetchJSON } from "./network";
 
 const sourceToGrammarPromise = new Map<string, Promise<IRawGrammar>>();
 
@@ -24,7 +23,7 @@ export async function loadGrammarByScope(
   let grammarPromise: undefined | Promise<IRawGrammar> = undefined;
 
   if (shouldUseFileSystemPromise === undefined) {
-    grammarPromise = readGrammar(lang.id);
+    grammarPromise = importGrammar(lang.id);
     shouldUseFileSystemPromise = grammarPromise
       .then(() => true)
       .catch(() => false);
@@ -35,15 +34,12 @@ export async function loadGrammarByScope(
   }
 
   if (shouldUseFileSystem) {
-    const promise = grammarPromise || readGrammar(lang.id);
+    const promise = grammarPromise || importGrammar(lang.id);
     sourceToGrammarPromise.set(scope, promise);
     return promise;
   }
 
-  // console.log("loading from network", lang.id);
-  const fetchPromise = fetchJSON(`grammars/${lang.id}`) as Promise<
-    IRawGrammar[]
-  >;
+  const fetchPromise = importGrammar(lang.id) as Promise<IRawGrammar[]>;
 
   const subScopes = lang.embeddedScopes;
   subScopes.forEach((subScope) => {
