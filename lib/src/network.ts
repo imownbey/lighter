@@ -6,7 +6,7 @@ const LIGHTER_VERSION = "__LIGHTER_VERSION__";
 // /themes/${name}.json
 export async function fetchJSON(endpoint: string) {
   console.warn(
-    `Code Hike warning: Fetching resource from network "${endpoint}"`
+    `Code Hike warning: [index] Fetching resource from network "${endpoint}"`
   );
   if (typeof fetch === "function") {
     // console.log(`using fetch`, `https://lighter.codehike.org/${endpoint}.json`);
