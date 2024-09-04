@@ -310,8 +310,8 @@ export async function importGrammar(langId: string): Promise<any> {
       return import("tm-grammars/grammars/rel.json");
     // case "riscv":
     //   return import("tm-grammars/grammars/riscv.json");
-    // case "rst":
-    //   return import("tm-grammars/grammars/rst.json");
+    case "rst":
+      return import("tm-grammars/grammars/rst.json");
     case "ruby":
       return import("tm-grammars/grammars/ruby.json");
     case "rust":
