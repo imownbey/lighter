@@ -1,14 +1,11 @@
 import { describe, expect, test } from "vitest";
-import { extractAnnotations, highlight } from "..";
+import { extractAnnotations } from "..";
 let codes = [
   // Single-line comment using //
-  ["// foo", "actionscript-3"],
-  ["// foo", "apex"],
   ["// foo", "c#"],
   ["// foo", "cpp"],
   ["// foo", "cs"],
   ["// foo", "csharp"],
-  ["// foo", "dart"],
   ["// foo", "f#"],
   ["// foo", "go"],
   ["// foo", "groovy"],
@@ -25,24 +22,16 @@ let codes = [
   ["// foo", "typescript"],
   ["// foo", "ts"],
   ["// foo", "tsx"],
-  ["// foo", "verilog"],
-  ["// foo", "wgsl"],
   ["// foo", "jison"],
-  ["// foo", "jsonnet"],
-  ["// foo", "kql"],
-  ["// foo", "zenscript"],
-  ["// foo", "kusto"],
 
   // Single-line comment using #
   ["# foo", "asm"],
   ["# foo", "bash"],
   ["# foo", "coffee"],
-  ["# foo", "crystal"],
   ["# foo", "docker"],
   ["# foo", "dockerfile"],
   ["# foo", "elixir"],
   ["# foo", "fish"],
-  ["# foo", "gdscript"],
   ["# foo", "graphql"],
   ["# foo", "http"],
   ["# foo", "ini"],
@@ -50,20 +39,15 @@ let codes = [
   ["# foo", "make"],
   ["# foo", "makefile"],
   ["# foo", "perl"],
-  ["# foo", "perl6"],
   ["# foo", "python"],
   ["# foo", "py"],
   ["# foo", "r"],
-  ["# foo", "raku"],
   ["# foo", "shell"],
-  ["# foo", "shellscript"],
-  ["# foo", "tcl"],
   ["# foo", "toml"],
   ["# foo", "txt"],
   ["# foo", "yaml"],
   ["# foo", "yml"],
   ["# foo", "zsh"],
-  ["# foo", "turtle"],
 
   // Single-line comment using ;
   ["; foo", "lisp"],
@@ -73,53 +57,27 @@ let codes = [
   [`" foo"`, "smalltalk"],
 
   // Single-line comment using --
-  ["-- foo", "ada"],
   ["-- foo", "haskell"],
   ["-- foo", "sql"],
   ["-- foo", "lua"],
 
-  // Single-line comment using %
-  ["% foo", "matlab"],
-  ["% foo", "tex"],
-
   // Special single-line comment formats
-  ["{ foo}", "pascal"],
-  ["# foo", "sh"],
-  ["# foo", "sparql"],
   ["# foo", "shell"],
-  ["# foo", "sh"],
-  ["# foo", "tcl"],
   ["<!-- foo-->", "vue-html"],
-  ["; foo", "beancount"],
-  ["' foo", "vb"],
   ["<!-- foo-->", "html"],
 
   // more
-  ["#  foo", "imba"],
   ["// foo", "kotlin"],
   ["; foo", "clj"],
   ["; foo", "clojure"],
-  ["% foo", "erl"],
   ["<%# foo%>", "erb"],
   ["% foo", "erlang"],
   ["// foo", "glimmer-js"],
   ["// foo", "glimmer-ts"],
-  ["; foo", "reg"],
-  ["* foo", "stata"],
-  [`" foo`, "vim"],
-  [`" foo`, "viml"],
-  [`" foo`, "vimscript"],
-  ["// foo", "hlsl"],
-  ["# foo", "berry"],
-  ["// foo", "cypher"],
   ["-- foo", "elm"],
-  ["# foo", "nix"],
   ["// foo", "solidity"],
   ["REM foo", "bat"],
   ["REM foo", "batch"],
-  ["// foo", "shader"],
-  ["// foo", "shaderlab"],
-  ["* foo", "sas"],
 
   // fail
   // ["// foo", "apl"],

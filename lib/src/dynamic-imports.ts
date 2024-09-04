@@ -178,6 +178,8 @@ export async function importGrammar(langId: string): Promise<any> {
       return import("tm-grammars/grammars/scheme.json");
     case "scss":
       return import("tm-grammars/grammars/scss.json");
+    case "shellscript":
+      return import("tm-grammars/grammars/shellscript.json");
     case "smalltalk":
       return import("tm-grammars/grammars/smalltalk.json");
     case "solidity":

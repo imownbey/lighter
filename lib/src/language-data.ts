@@ -8,6 +8,7 @@ export const LANG_NAMES = [
   "asm",
   "astro",
   "awk",
+  "bash",
   "bat",
   "batch",
   "c",
@@ -118,6 +119,9 @@ export const LANG_NAMES = [
   "scala",
   "scheme",
   "scss",
+  "sh",
+  "shell",
+  "shellscript",
   "smalltalk",
   "solidity",
   "sparql",
@@ -145,7 +149,8 @@ export const LANG_NAMES = [
   "xml",
   "yaml",
   "yml",
-  "zig"
+  "zig",
+  "zsh"
 ];
 type NamesTuple = typeof LANG_NAMES;
 export type LanguageAlias = NamesTuple[number];
@@ -238,6 +243,7 @@ export type LanguageName =
   | "scala"
   | "scheme"
   | "scss"
+  | "shellscript"
   | "smalltalk"
   | "solidity"
   | "sparql"
@@ -348,6 +354,7 @@ export type ScopeName =
   | "source.scala"
   | "source.scheme"
   | "source.css.scss"
+  | "source.shell"
   | "source.smalltalk"
   | "source.solidity"
   | "source.sparql"
@@ -493,6 +500,11 @@ export const aliasOrIdToScope: Record<LanguageAlias, ScopeName> = {
   "scala": "source.scala",
   "scheme": "source.scheme",
   "scss": "source.css.scss",
+  "shellscript": "source.shell",
+  "bash": "source.shell",
+  "sh": "source.shell",
+  "shell": "source.shell",
+  "zsh": "source.shell",
   "smalltalk": "source.smalltalk",
   "solidity": "source.solidity",
   "sparql": "source.sparql",
@@ -670,7 +682,9 @@ export const scopeToLanguageData: Record<ScopeName, LanguageData> = {
   },
   "text.git-rebase": {
     "id": "git-rebase",
-    "embeddedScopes": []
+    "embeddedScopes": [
+      "source.shell"
+    ]
   },
   "source.gleam": {
     "id": "gleam",
@@ -762,6 +776,7 @@ export const scopeToLanguageData: Record<ScopeName, LanguageData> = {
   "source.http": {
     "id": "http",
     "embeddedScopes": [
+      "source.shell",
       "source.json",
       "text.xml",
       "source.graphql"
@@ -826,6 +841,7 @@ export const scopeToLanguageData: Record<ScopeName, LanguageData> = {
   "text.tex.latex": {
     "id": "latex",
     "embeddedScopes": [
+      "source.shell",
       "source.css",
       "source.gnuplot",
       "source.haskell",
@@ -917,6 +933,7 @@ export const scopeToLanguageData: Record<ScopeName, LanguageData> = {
       "source.regexp.python",
       "source.rust",
       "source.scala",
+      "source.shell",
       "source.ts",
       "source.tsx",
       "source.cs",
@@ -968,6 +985,7 @@ export const scopeToLanguageData: Record<ScopeName, LanguageData> = {
       "source.rust",
       "source.scala",
       "source.css.scss",
+      "source.shell",
       "source.sql",
       "text.xml",
       "source.swift",
@@ -1058,6 +1076,7 @@ export const scopeToLanguageData: Record<ScopeName, LanguageData> = {
       "source.css",
       "source.c",
       "source.js",
+      "source.shell",
       "source.lua"
     ]
   },
@@ -1082,6 +1101,10 @@ export const scopeToLanguageData: Record<ScopeName, LanguageData> = {
     "embeddedScopes": [
       "source.css"
     ]
+  },
+  "source.shell": {
+    "id": "shellscript",
+    "embeddedScopes": []
   },
   "source.smalltalk": {
     "id": "smalltalk",
