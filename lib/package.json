@@ -1,8 +1,8 @@
 {
-  "name": "@code-hike/lighter",
+  "name": "@imownbey/lighter",
   "type": "module",
-  "version": "1.0.0",
-  "description": "Code Hike's syntax highlighter",
+  "version": "1.1.0",
+  "description": "Code Hike's syntax highlighter - modified",
   "license": "MIT",
   "exports": {
     ".": {
@@ -50,7 +50,7 @@
     "typecheck": "vitest typecheck",
     "regenerate": "node ./utils/update.mjs"
   },
-  "repository": "https://github.com/code-hike/lighter",
+  "repository": "https://github.com/imownbey/lighter",
   "homepage": "https://codehike.org",
   "funding": "https://github.com/sponsors/code-hike",
   "dependencies": {
