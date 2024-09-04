@@ -1,4 +1,3 @@
-import { fetchJSON } from "./network";
 import { getColor, getColorScheme } from "./theme-colors";
 
 const promiseCache = new Map<StringTheme, Promise<RawTheme>>();
@@ -41,7 +40,7 @@ async function reallyLoadThemeByName(name: StringTheme): Promise<RawTheme> {
   try {
     return base16;
   } catch (e) {
-    return await fetchJSON(`themes/${name}`);
+    throw new Error("Theme not found: " + name);
   }
 }
 
